@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Food Project Login / Sign Up</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: rgba(255, 255, 245, 0.94);
+      border-radius: 16px;
+      box-shadow: 0 8px 36px rgba(60,40,10,0.10);
+      padding: 2.4rem 2.2rem 2rem 2.2rem;
+      max-width: 370px;
+      width: 96vw;
+      color: #5b574e;
+    }
+    h2 {
+      text-align: center;
+      color: #7d6846;
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 1.6rem;
+    }
+    label {
+      display: block;
+      margin-top: 0.7em;
+      margin-bottom: 0.2em;
+      font-size: 0.99rem;
+      color: #655c4f;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.22rem 0 0.7rem 0;
+      border-radius: 6px;
+      border: 1px solid #e6ddcb;
+      background: #fdf6ef;
+      font-size: 1rem;
+      color: #5b574e;
+      box-sizing: border-box;
+      transition: border 0.2s;
+    }
+    input:focus {
+      border-color: #e0b87a;
+      outline: none;
+    }
+    button {
+      width: 100%;
+      background: #f5cf87;
+      color: #715c31;
+      padding: 0.9em 0;
+      margin: 1.1em 0 0.8em 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(216,176,85,0.06);
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #e9bd67;
+      color: #4f3c10;
+    }
+    .toggle-link {
+      text-align: center;
+      margin-top: 2px;
+      font-size: 1rem;
+      color: #796d55;
+    }
+    .toggle-link a {
+      color: #be9225;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-bottom 0.13s;
+    }
+    .toggle-link a:hover {
+      border-bottom: 2px solid #be9225;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="form-container">
+    <h2>Login</h2>
+    <form id="login-form" autocomplete="off">
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" placeholder="Enter your email" required />
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" placeholder="Enter your password" required />
+      <button type="submit">Log In</button>
+    </form>
+    <div class="toggle-link">
+      Don't have an account? <a onclick="showForm('signup')">Sign Up</a>
+    </div>
+  </div>
+  <script>
+    function showForm(form) {
+      const container = document.getElementById('form-container');
+      if (form === 'signup') {
+        container.innerHTML = `
+          <h2>Sign Up</h2>
+          <form id="signup-form" autocomplete="off">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" placeholder="Your name" required />
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="Your email" required />
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="Choose a password" required />
+            <button type="submit">Sign Up</button>
+          </form>
+          <div class="toggle-link">
+            Already a member? <a onclick="showForm('login')">Login</a>
+          </div>`;
+      } else {
+        container.innerHTML = `
+          <h2>Login</h2>
+          <form id="login-form" autocomplete="off">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Enter your email" required />
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Enter your password" required />
+            <button type="submit">Log In</button>
+          </form>
+          <div class="toggle-link">
+            Don't have an account? <a onclick="showForm('signup')">Sign Up</a>
+          </div>`;
+      }
+    }
+  </script>
+</body>
+</html>
